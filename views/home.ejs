@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cocktail Recipes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<style>
+.box {
+  display: grid;
+  position: relative;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "label"
+  "button";
+  left: 35%;
+  width: 30%;
+  hight: 5%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: silver;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: x-large;
+}
+.label {
+    grid-area: label;
+    text-align: center;
+    position: relative;
+    background-color: darkslategray;
+    border-radius: 10px;
+    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.link {
+  text-decoration: none;
+}
+.button {
+  grid-area: button;
+  padding: 10px;
+  text-align: center;
+}
+
+</style>
+<div class="box">
+  <div class="label"> Random Cocktail Generator</div>
+  <div class="button">
+    <button type="button"> 
+      <a href="/cocktail" class="link"> Generate Cocktail </a>
+    </button>
+  </div>
+</div>
+</body>

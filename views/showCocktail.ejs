@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Recipe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<style>
+.cocktail {
+  display: grid;
+  grid-template-areas: 
+    "title title title title"
+    "info info info info"
+    "amount type instruct instruct"
+    "image image instruct instruct";
+  position: relative;
+  left: 25%;
+  width: 50%;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: silver;
+  font-family: 'Courier New', Courier, monospace;
+}
+.title {
+  grid-area: title;
+  padding: 1%;
+  border-radius: 10px;
+  color: white;
+  background-color: darkslategray;
+  font-size: x-large;
+}
+.info {
+  grid-area: info;
+}
+.ingredientAmount {
+  grid-area: amount;
+  width: 100px;
+  padding: 1%;
+}
+.ingredientType {
+  grid-area: type;
+  padding: 1%;
+  text-align: left;
+}
+.instructions {
+  grid-area: instruct;
+  padding: 1%;
+  border-radius: 10px;
+  background-color: snow;
+}
+.image {
+  grid-area: image;
+  padding: 10px;
+}
+.link {
+  text-decoration: none;
+}
+</style>
+  <button type="button" class="btn btn-primary"> 
+    <a href="/" class="link"> Back </a>
+  </button>
+<div class="cocktail">
+  <div class="title">
+    <%= cocktail.strDrink %><br>
+  </div>
+  <div class="info">
+    Type: <%= cocktail.strCategory %><br>
+    Cocktail Type: <%= cocktail.strAlcoholic %><br>
+    Glass: <%= cocktail.strGlass %><br>
+    Ingredients:<br>
+  </div>
+  <div class="ingredientAmount">
+    <% Object.keys(cocktail).forEach(key => { if (key.startsWith("strMeasure") && cocktail[key] != null) { %>
+    <%= cocktail[key] %>
+    <br>
+    <% }}) %>
+  </div>
+  <div class="ingredientType">
+    <% Object.keys(cocktail).forEach(key => { if (key.startsWith("strIngredient") && cocktail[key] != null ) { %>
+    <%= cocktail[key] %>
+    <br>
+    <% }}) %>
+  </div>
+  <div class="instructions">
+    Instructions: <%= cocktail.strInstructions %>
+  </div>
+  <div class="image">
+    <img src="<%= cocktail.strDrinkThumb %>/preview">
+  </div>
+</div>
+</body>
